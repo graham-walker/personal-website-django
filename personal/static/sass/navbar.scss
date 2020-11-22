@@ -1,0 +1,155 @@
+.navbar {
+	transition: box-shadow 0.2s ease;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 3rem;
+	z-index: 1;
+	min-height: 3.75rem;
+
+	.nav-progress {
+		height: 4px;
+		position: absolute;
+		left: 0;
+		top: 0;
+		background: $color-main;
+		transition: width 0.1s ease;
+	}
+
+	&.is-fixed {
+		box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+		position: fixed;
+		top: 0;
+	}
+
+	&.force-shadow {
+		box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+	}
+
+	#token {
+		font-weight: 500;
+		color: $color-text-light;
+		background: $color-background-5;
+		border-radius: 50%;
+		height: 2.75rem;
+		width: 2.75rem;
+		margin: 0.5rem;
+		line-height: 2.75rem;
+		text-align: center;
+		font-size: 1rem;
+		position: relative;
+	}
+
+	#name {
+		display: flex;
+	}
+
+	.navbar-burger {
+		width: 3.75rem;
+		height: 3.75rem;
+	}
+
+	.navbar-link:not(.is-arrowless)::after {
+		border-color: $color-text-dark;
+	}
+}
+
+#logo + .navbar {
+	margin-top: 0;
+}
+
+.navbar-item,
+.navbar-link {
+	font-size: 14px;
+	font-weight: 700;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: $color-text-dark !important;
+	transition: background-color 0.2s ease, color 0.2s ease;
+
+	&:hover {
+		border-color: rgba($color-main, 0.1);
+	}
+
+	&.is-active {
+		color: $color-main !important;
+	}
+}
+
+.navbar-item.has-dropdown .navbar-item,
+.navbar-item.has-dropdown .navbar-link {
+	border-bottom: 0 !important;
+}
+
+@media only screen and (max-width: 1023px) {
+	.navbar {
+		overflow-y: auto;
+		max-height: 100vh;
+
+		.navbar-menu {
+			overflow: hidden;
+			height: 0;
+			display: block;
+			transition: height 0.2s ease;
+			padding: 0;
+			box-shadow: none;
+
+			> :first-child {
+				margin-top: 0.5rem;
+			}
+
+			> :last-child {
+				margin-bottom: 0.5rem;
+			}
+
+			.navbar-item,
+			.navbar-link {
+				border-bottom: 0 !important;
+
+				&.is-active {
+					&:not(:hover) {
+						background-color: $color-background-1;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.navbar {
+		.container {
+			padding: 0 1.5rem;
+
+			.navbar-menu {
+				max-height: 3.75rem !important;
+			}
+		}
+
+		#token {
+			margin-left: 0;
+			margin-right: 3rem;
+		}
+	}
+
+	.navbar-dropdown {
+		border: 2px solid $color-background-5;
+		border-radius: 0;
+	}
+}
+
+hr.navbar-divider {
+	background-color: #dbdbdb !important;
+	height: 1px !important;
+}
+
+.navbar-item .button {
+	border-radius: 500px;
+	background-color: $color-main;
+	color: $color-text-light;
+	text-transform: none !important;
+}
+
+.navbar-brand {
+	margin-left: 0 !important;
+}

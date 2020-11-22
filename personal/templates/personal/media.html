@@ -1,0 +1,70 @@
+{% extends "personal/header.html" %}
+
+{% load personal_extras %}
+
+{% block title %}Media{% endblock %}
+{% block pagename %}Media{% endblock %}
+
+{% block content %}
+
+{% include "personal/includes/navbar.html" %}
+
+
+<div class="container">
+    <section class="section">
+        <h1>Media</h1>
+        <form class="upload-form" role="form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="field">
+                <label class="label">Alias</label>
+                <div class="control">
+                    <input class="input" type="text" name="name" maxlength="256" id="id_name" placeholder="Enter alias...">
+                </div>
+            </div>
+            <div class="field">
+                <div class="file has-name is-fullwidth">
+                    <label class="file-label">
+                        <input class="file-input" type="file" name="file" required="" id="id_file">
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                                Choose a file…
+                            </span>
+                        </span>
+                        <span class="file-name"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-dark" type="submit">Upload</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    <section class="section">
+        <div class="columns is-multiline">
+            {% for file in posts %}
+            <div
+                class="column 
+            is-full-mobile is-half-tablet is-one-third-desktop is-one-quarter-widescreen is-one-fifth-fullhd is-pulled-left"
+                style="word-break: break-all;"
+            >
+                <a href="/delete/media/{{ file.id }}" class="delete" style="float: right;">Delete</a>
+                <a class="copy-to-clipboard" data-url="{{ file.file.url }}">
+                    {{ file|file_to_icon }}
+                    <p>Copy URL to clipboard</p>
+                </a>
+                <a href="{{ file.file.url }}" target="_blank">{{ file }}</a>
+            </div>
+            {% empty %}
+            <p>Nothing here.</p>
+            {% endfor %}
+        </div>
+        {% include "personal/includes/pagination.html" with bottom=True %}
+    </section>
+</div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+.footer {
+	background: $color-background-5;
+	color: $color-text-light;
+
+	.level {
+		justify-content: center;
+
+		.level-item {
+			padding: 1rem;
+		}
+
+		#footer-copyright {
+			font-size: 1.5rem;
+			font-weight: 500;
+		}
+	}
+
+	a {
+		color: $color-text-light;
+
+		&:hover {
+			color: $color-text-light;
+			text-decoration: underline;
+		}
+
+		&.icon-link {
+			&:not(:last-child) {
+				margin-right: 0.25rem;
+			}
+			
+			.icon {
+				transition: transform 0.2s ease-out;
+				display: inline-block;
+			}
+			
+			&:hover {
+				text-decoration: none;
+				.icon {
+					transform: scale(1.25);
+				}
+			}
+		}
+
+		.fa-inverse {
+			color: $color-text-dark;
+		}
+	}
+
+	p {
+		font-size: 14px;
+	}
+
+	.icon.is-small {
+		font-size: .5rem;
+		vertical-align: super;
+		display: inline-block;
+	}
+}
+
+@media only screen and (max-width: 1023px) { 
+    .footer .level {
+		display: block;
+	}
+}

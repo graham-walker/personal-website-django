@@ -1,0 +1,101 @@
+{% load personal_extras %}
+
+<nav class="navbar">
+    {% if has_progress %}<div class="nav-progress"></div>{% endif %}
+    <div class="container">
+        <div class="navbar-brand">
+            {% if bio.initials %}
+            <a id="token" href="/">{{ bio.initials }}</a>
+            {% endif %}
+            <a id="name" href="/"><span class="navbar-item">{{ bio.name }}</span></a>
+            <a role="button" class="navbar-burger burger">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <!-- <a class="navbar-item{% if active_link == 'portfolio' %} is-active{% endif %}"
+                href="/portfolio">Portfolio</a>
+            <a class="navbar-item{% if active_link == 'about' %} is-active{% endif %}" href="/about">About Me</a>
+            <a class="navbar-item{% if active_link == 'blogs' %} is-active{% endif %}" href="/blogs">Case Studies</a> -->
+            <!-- <a class="navbar-item" href="{{ bio.resume_url }}" target="_blank">Resume</a> -->
+            {% if user.is_superuser %}
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">{{ user.username|underscore_to_space }}</a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="/admin">Control Panel</a>
+                    <a class="navbar-item" href="/media">Edit Media</a>
+                    <a class="navbar-item" href="/admin/personal/post/add/">New Post</a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item" href="/logout">Logout</a>
+                </div>
+            </div>
+            {% else %}
+            <!-- <a class="navbar-item" href="/login">Login</a> -->
+            {% endif %}
+            <div class="navbar-end">
+                {% if bio.email %}
+                <a class="navbar-item" href="mailto:{{ bio.email }}">{{ bio.email }}</a>
+                {% endif %}
+                {% if bio.resume_url %}
+                <a class="navbar-item" href="{{ bio.resume_url }}" target="_blank">Resume</a>
+                {% endif %}
+                <div class="navbar-item">
+                    <div class="field is-grouped">
+                        {% if bio.github_url %}
+                        <p class="control">
+                            <a class="button" href="{{ bio.github_url }}" target="_blank">
+                                <span class="icon">
+                                    <i class="fab fa-github-alt"></i>
+                                </span>
+                                <span>GitHub</span>
+                            </a>
+                        </p>
+                        {% endif %}
+                        {% if bio.linkedin_url %}
+                        <p class="control">
+                            <a class="button" href="{{ bio.linkedin_url }}" target="_blank">
+                                <span class="icon">
+                                    <i class="fab fa-linkedin"></i>
+                                </span>
+                                <span>linkedIn</span>
+                            </a>
+                        </p>
+                        {% endif %}
+                        {% if bio.youtube_url %}
+                        <p class="control">
+                            <a class="button is-primary" href="{{ bio.youtube_url }}" target="_blank">
+                                <span class="icon">
+                                    <i class="fab fa-youtube"></i>
+                                </span>
+                                <span>linkedIn</span>
+                            </a>
+                        </p>
+                        {% endif %}
+                        {% if bio.facebook_url %}
+                        <p class="control">
+                            <a class="button is-primary" href="{{ bio.facebook_url }}" target="_blank">
+                                <span class="icon">
+                                    <i class="fab fa-facebook"></i>
+                                </span>
+                                <span>linkedIn</span>
+                            </a>
+                        </p>
+                        {% endif %}
+                        {% if bio.twitter_url %}
+                        <p class="control">
+                            <a class="button is-primary" href="{{ bio.twitter_url }}" target="_blank">
+                                <span class="icon">
+                                    <i class="fab fa-twitter"></i>
+                                </span>
+                                <span>linkedIn</span>
+                            </a>
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

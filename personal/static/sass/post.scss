@@ -1,0 +1,47 @@
+.post-title {
+	font-size: 4rem;
+	max-width: 768px;
+	margin: 0 auto;
+	margin-bottom: 1.5rem;
+	font-weight: 700;
+	line-height: 1.125;
+	color: $color-text-title;
+}
+
+.date {
+	margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 767px) {
+	.post-title {
+		font-size: 2rem;
+	}
+}
+
+.screenshot-credit {
+	display: block;
+	text-align: center;
+	color: #b5b5b5;
+	font-size: 12px;
+	margin-top: 12px;
+
+	a {
+		color: #b5b5b5;
+		text-decoration: underline;
+		transition: color 0.2s ease;
+	}
+}
+
+.post-container {
+	font-size: 1.25rem;
+
+	> p, > h1, > h2, > h3, > h4, > h5, > h6 {
+		max-width: 768px;
+		margin: 0 auto;
+	}
+}
+
+.chart-container {
+	max-width: 878px;
+	margin: 0 auto;
+}

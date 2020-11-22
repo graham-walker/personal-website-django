@@ -1,0 +1,59 @@
+#about {
+	max-width: 768px;
+
+	.shelf-content {
+		padding-bottom: 0;
+	}
+
+	.title:hover {
+		text-decoration: none;
+	}
+}
+
+#face {
+	filter: brightness(1.1);
+	animation: bounceIn 1s forwards cubic-bezier(0.215, 0.61, 0.355, 1), fadeIn 0.4s forwards linear;
+}
+
+@keyframes bounceIn {
+	0% {
+		-webkit-transform: translateY(-60px);
+	}
+	20% {
+		-webkit-transform: translateY(0);
+	}
+	40% {
+		-webkit-transform: translateY(-15px);
+	}
+	60% {
+		-webkit-transform: translateY(0);
+	}
+	80% {
+		-webkit-transform: translateY(-4px);
+	}
+	100% {
+		-webkit-transform: translateY(0);
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	#about {
+
+		.shelf-image {
+			margin-top: 1.5rem;
+		}
+	}
+}
+
+#about-section {
+	padding-top: 0;
+}

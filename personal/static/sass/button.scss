@@ -1,0 +1,38 @@
+.button {
+    font-size: 14px;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border-radius: 0;
+    border: 0;
+    box-shadow: none !important;
+    transition: all 0.2s ease;
+    background-color: $color-main;
+    color: $color-text-light;
+
+    &:hover {
+        background-color: lighten($color-main, 10%);
+        color: $color-text-light;
+    }
+
+    &.is-light {
+        background-color: $color-background-2;
+    }
+
+    &.is-dark {
+        background-color: $color-background-5;
+        border: 2px solid $color-background-5;
+        color: $color-text-light;
+
+        &:hover {
+            border: 2px solid $color-background-5;
+            color: $color-text-dark;
+            background: $color-background-1;
+        }
+    }
+
+    .icon {
+        font-weight: 400;
+        display: inline-block;
+    }
+}

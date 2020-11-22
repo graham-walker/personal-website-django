@@ -1,0 +1,65 @@
+{% extends "personal/header.html" %}
+
+{% load personal_extras %}
+
+{% block title %}Portfolio{% endblock %}
+{% block pagename %}Portfolio{% endblock %}
+
+{% block content %}
+
+{% include "personal/includes/navbar.html" with active_link="post" has_progress=True  %}
+<div class="background-wrapper is-dark">
+    <div class="container">
+        <section class="section">
+            <div class="subtitle">{{ post.subtitle }}</div>
+            <div class="post-title">
+                {% if not post.visible %}
+                <span class="icon has-text-danger"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
+                {% endif %}
+                {{ post.title }}
+            </div>
+            <figure class="image has-shadow">
+                <img src="{{ post.screenshot }}">
+            </figure>
+            {% if post.screenshot_credit %}<p class="screenshot-credit">{{ post.screenshot_credit|safe }}</p>{% endif %}
+        </section>
+    </div>
+</div>
+<div class="container">
+    <section class="section">
+        {% if post.display_posted %}
+        <p class="date"><span class="icon is-color"><i
+                    class="fas fa-calendar-alt"></i></span>{{ post.date_posted }}{% if post.display_edited %}<span
+                class="icon is-color"><i class="fas fa-pencil-alt"></i></span>{{ post.date_edited }}{% endif %}</p>
+        {% endif %}
+        <div class="tags">
+            {% for tag in post.tags.all %}
+            <span class="tag is-black">{{ tag.name }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="post-container">{{ post.body|safe }}</div>
+
+        {% if post.files.count is not 0 %}
+        <h2 class="mb-1">{{ post.files.count }} Attachment{% if post.files.count is not 1 %}s{% endif %}</h2>
+        <article class="panel is-primary">
+            {% for file in post.files.all %}
+            <div class="panel-block">
+                {{ file|file_to_icon }}
+                <a href="{{ file.file.url }}">
+                    <span class="ml-2">{{ file }}</span>
+                </a>
+            </div>
+            {% endfor %}
+        </article>
+        {% endif %}
+
+        {% if user.is_superuser %}
+        <p><a class="button is-dark" href="/admin/personal/post/{{ post.id }}/change">Edit Post</a></p>
+        <br/>
+        {% endif %}
+
+        <a href="/" class="button is-dark">Return to Portfolio</a>
+    </section>
+</div>
+{% endblock %}

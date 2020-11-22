@@ -1,0 +1,30 @@
+.pagination {
+	padding-top: 3rem;
+
+	.pagination-link,
+	.pagination-previous,
+	.pagination-next {
+		border: 0;
+		border-radius: 0;
+		box-shadow: none !important;
+		background: $color-background-4;
+		width: 10px;
+		height: 10px;
+		border-radius: 500px;
+		min-width: unset;
+		transition: transform 0.2s ease-out;
+		padding: 0;
+		vertical-align: inherit;
+
+		&.is-current {
+			width: 14px;
+			height: 14px;
+			border: 2px solid $color-background-5;
+			background: transparent;
+		}
+
+		&:hover:not(.is-current):not([disabled]) {
+			transform: scale(1.25);
+		}
+	}
+}

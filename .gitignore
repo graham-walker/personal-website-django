@@ -1,0 +1,11 @@
+/mysite/secret.py
+/personal/migrations
+.sass-cache
+.vscode
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+uploads
+TODO.txt

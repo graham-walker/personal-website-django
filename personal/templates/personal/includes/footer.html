@@ -1,0 +1,77 @@
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+            <div class="level">
+                <div class="level-item is-narrow">
+                    <span id="footer-copyright">&copy; {% now "Y" %} {{ bio.name }}</span>
+                </div>
+                <div class="level-item is-narrow">
+                    {% if bio.github_url %}
+                    <a class="icon-link" href="{{ bio.github_url }}" target="_blank">
+                        <span class="icon is-medium">
+                            <span class="fa-stack">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github-alt fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </span>
+                    </a>
+                    {% endif %}
+                    {% if bio.linkedin_url %}
+                    <a class="icon-link" href="{{ bio.linkedin_url }}" target="_blank">
+                        <span class="icon is-medium">
+                            <span class="fa-stack">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </span>
+                    </a>
+                    {% endif %}
+                    {% if bio.youtube_url %}
+                    <a class="icon-link" href="{{ bio.youtube_url }}" target="_blank">
+                        <span class="icon is-medium">
+                            <span class="fa-stack">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </span>
+                    </a>
+                    {% endif %}
+                    {% if bio.facebook_url %}
+                    <a class="icon-link" href="{{ bio.facebook_url }}" target="_blank">
+                        <span class="icon is-medium">
+                            <span class="fa-stack">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </span>
+                    </a>
+                    {% endif %}
+                    {% if bio.twitter_url %}
+                    <a class="icon-link" href="{{ bio.twitter_url }}" target="_blank">
+                        <span class="icon is-medium">
+                            <span class="fa-stack">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </span>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            {% if bio.website_repo_url %}
+            <p>
+                <a
+                    href="{{ bio.website_repo_url }}"
+                    target="_blank"
+                >
+                    Inspect the source code of my personal website on GitHub<span
+                        class="icon is-small"
+                    >
+                        <i class="fas fa-external-link-alt"></i>
+                    </span>
+                </a>
+            </p>
+            {% endif %}
+        </div>
+    </div>
+</footer>

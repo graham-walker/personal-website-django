@@ -1,0 +1,173 @@
+// cd /personal/static
+// sass --no-source-map --watch sass/main.scss:css/custom.min.css --style compressed
+
+@import 'var', 'header', 'navbar', 'footer', 'pagination', 'index', 'media', 'post', 'shelf', 'button';
+
+body {
+	display: flex;
+	flex-direction: column;
+
+	> .site-wrapper {
+		min-height: 100vh;
+		padding-top: 9.25rem;
+	}
+}
+
+@media screen and (min-width: 1408px) {
+	.navbar .container {
+		max-width: 1536px;
+	}
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 3rem;
+	color: $color-text-title;
+}
+
+@media only screen and (max-width: 767px) {
+	h1 {
+		font-size: 2rem;
+	}
+}
+
+h2 {
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $color-text-title;
+}
+
+hr {
+	height: 1px;
+}
+
+a {
+	color: $color-main;
+
+	&:hover {
+		color: $color-text;
+	}
+
+	&.title:hover {
+		text-decoration: underline;
+	}
+}
+
+.title {
+	color: $color-text-title;
+	font-size: 2rem;
+	display: block;
+	font-weight: 700;
+
+	&:hover {
+		color: $color-text-title;
+	}
+}
+
+.subtitle {
+	display: block;
+	font-size: 14px;
+	font-weight: 800;
+	color: darken($color-main, 0.3%) !important;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+
+.background-wrapper.is-dark {
+	background: $color-background-2;
+}
+
+// Override Bulma styles
+.box {
+	box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1);
+}
+
+.textarea {
+	border-radius: 0;
+}
+
+.panel {
+	border-radius: 0;
+	box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1);
+}
+
+// Inputs
+input[type='text'],
+input[type='password'] {
+	border: 2px solid $color-background-5;
+	border-radius: 0;
+	box-shadow: none !important;
+
+	&:hover {
+		border-color: $color-background-5;
+	}
+
+	&:active,
+	&:focus {
+		border-color: $color-main !important;
+	}
+
+	&::placeholder {
+		color: lighten($color-text, 30%);
+	}
+}
+
+.file-cta,
+.file-name {
+	border: 2px solid $color-background-5 !important;
+	border-radius: 0;
+	box-shadow: none !important;
+}
+
+.file-cta {
+	border-right: 0 !important;
+}
+
+.image.is-256x256 {
+	height: 256px;
+	width: 256px;
+}
+
+.image.is-192x192 {
+	height: 192px;
+	width: 192px;
+}
+
+// Helpers
+.fade-in {
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+
+.faded-in {
+	opacity: 1;
+}
+
+.is-underline {
+	text-decoration: underline;
+}
+
+.is-color {
+	color: $color-main;
+}
+
+.is-highlight {
+	background: $color-main;
+}
+
+.is-highlight-strong {
+	background: $color-background-5;
+	color: $color-text-light;
+}
+
+.has-shadow {
+	box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1);
+}
