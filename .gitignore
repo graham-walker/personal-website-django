@@ -1,5 +1,6 @@
 /mysite/secret.py
 /personal/migrations
+/env
 .sass-cache
 .vscode
 *.log
