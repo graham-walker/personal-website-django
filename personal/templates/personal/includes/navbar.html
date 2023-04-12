@@ -4,7 +4,9 @@
     {% if has_progress %}<div class="nav-progress"></div>{% endif %}
     <div class="container">
         <div class="navbar-brand">
-            {% if bio.initials %}
+            {% if bio.siteicon_url %}
+            <a href="/"><div id="site-icon"><img src="{{bio.siteicon_url}}" alt=""></div></a>
+            {% elif bio.initials %}
             <a id="token" href="/">{{ bio.initials }}</a>
             {% endif %}
             <a id="name" href="/"><span class="navbar-item">{{ bio.name }}</span></a>

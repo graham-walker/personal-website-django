@@ -26,6 +26,41 @@
 		box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
 	}
 
+	#site-icon {
+		position: relative;
+		height: 2.75rem;
+		width: 2.75rem;
+		margin: 0.5rem;
+
+		&::before {
+			content: "";
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 0.15rem solid $color-contrast;
+			display: block;
+			position: absolute;
+			z-index: -1;
+			opacity: 0;
+			animation: fadeInTL 1s forwards;
+		}
+
+		&::after {
+			content: "";
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			border: 0.15rem solid $color-main;
+			display: block;
+			position: absolute;
+			z-index: -1;
+			opacity: 0;
+			animation: fadeInBR 1s forwards;
+		}
+	}
+
 	#token {
 		font-weight: 500;
 		color: $color-text-light;
@@ -126,6 +161,7 @@
 			}
 		}
 
+		#site-icon,
 		#token {
 			margin-left: 0;
 			margin-right: 3rem;
@@ -152,4 +188,26 @@ hr.navbar-divider {
 
 .navbar-brand {
 	margin-left: 0 !important;
+}
+
+@keyframes fadeInTL {
+	from {
+		opacity: 0;
+		transform: translate(0, 0) scale(0) rotate(-345deg);
+	}
+	to {
+		opacity: 1;
+		transform: translate(-0.15rem, -0.15rem) scale(1) rotate(0);
+	}
+}
+
+@keyframes fadeInBR {
+	from {
+		opacity: 0;
+		transform: translate(0, 0) scale(0) rotate(345deg);
+	}
+	to {
+		opacity: 1;
+		transform: translate(0.15rem, 0.15rem) scale(1) rotate(0);
+	}
 }

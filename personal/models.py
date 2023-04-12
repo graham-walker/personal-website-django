@@ -10,6 +10,8 @@ class Bio(models.Model):
     initials = models.CharField(max_length=2000, blank=True, null=True)
     greeting = models.CharField(max_length=2000, blank=True, null=True)
     screenshot_url = models.CharField(max_length=2000, blank=True, null=True)
+    favicon_url = models.CharField(max_length=2000, blank=True, null=True)
+    siteicon_url = models.CharField(max_length=2000, blank=True, null=True)
     email = models.CharField(max_length=2000, blank=True, null=True)
     phone_number = models.CharField(max_length=2000, blank=True, null=True)
     employment = models.CharField(max_length=2000, blank=True, null=True)
