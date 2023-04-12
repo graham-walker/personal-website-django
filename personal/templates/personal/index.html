@@ -15,13 +15,13 @@
     <section id="about-section" class="section">
         <div id="about" class="shelf is-half">
             <div class="shelf-content">
-                {% if bio.title %}<h1 class="title">{{ bio.title|safe }}</h1>{% endif %}
+                {% if bio.title %}<h1 class="title is-spaced">{{ bio.title|safe }}</h1>{% endif %}
                 {% if bio.greeting %}<span class="subtitle">{{ bio.greeting }}</span>{% endif %}
                 {{ bio.about_me|safe }}
             </div>
             {% if bio.screenshot_url %}
             <div class="shelf-image fade-in">
-                <figure class="image">
+                <figure class="image has-shadow">
                     <img id="face" src="{{ bio.screenshot_url }}">
                 </figure>
             </div>

@@ -160,6 +160,10 @@ input[type='password'] {
 	color: $color-main;
 }
 
+.is-contrast {
+	color: $color-contrast;
+}
+
 .is-highlight {
 	background: $color-main;
 	color: $color-text-light;

@@ -2,22 +2,35 @@
 	max-width: 768px;
 
 	.shelf-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		padding-bottom: 3rem;
 	}
 
 	.shelf-image {
 		padding: 0;
 		flex-shrink: 0;
+
+		.image {
+			background: $color-main;
+			overflow: hidden;
+			
+			#face {
+				max-height: 400px;
+				filter: drop-shadow(2px 2px 0 white) drop-shadow(-2px 2px 0 white) drop-shadow(2px -2px 0 white)
+					drop-shadow(-2px -2px 0 white);
+			}
+		}
 	}
 
-	.title:hover {
-		text-decoration: none;
+	.title {
+		line-height: 1.25em;
 	}
-}
 
-#face {
-	height: 400px;
-	background: $color-main;
+	.title span {
+		white-space: nowrap;
+	}
 }
 
 @keyframes bounceIn {
