@@ -14,6 +14,9 @@
     <div class="container">
         {% include "personal/includes/posts_list.html" %}
     </div>
+    <section class="section padding-top-0">
+        {% include "personal/includes/pagination.html" with bottom=True %}
+    </section>
 </div>
 
 {% endblock %}

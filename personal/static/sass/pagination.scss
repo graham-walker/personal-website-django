@@ -1,6 +1,4 @@
 .pagination {
-	padding-top: 3rem;
-
 	.pagination-link,
 	.pagination-previous,
 	.pagination-next {
@@ -8,8 +6,8 @@
 		border-radius: 0;
 		box-shadow: none !important;
 		background: $color-background-4;
-		width: 10px;
-		height: 10px;
+		width: 1.25rem;
+		height: 1.25rem;
 		border-radius: 500px;
 		min-width: unset;
 		transition: transform 0.2s ease-out;
@@ -17,9 +15,9 @@
 		vertical-align: inherit;
 
 		&.is-current {
-			width: 14px;
-			height: 14px;
-			border: 2px solid $color-background-5;
+			width: 1.25rem;
+			height: 1.25rem;
+			border: 0.15rem solid $color-background-5;
 			background: transparent;
 		}
 
