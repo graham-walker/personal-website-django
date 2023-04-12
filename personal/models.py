@@ -24,6 +24,7 @@ class Bio(models.Model):
     twitter_url = models.CharField(max_length=2000, blank=True, null=True)
     resume_url = models.CharField(max_length=2000, blank=True, null=True)
     about_me = RichTextField(blank=True, null=True)
+    show_about_buttons = models.BooleanField(default=True)
     announcement = RichTextField(blank=True, null=True)
     website_repo_url = models.CharField(max_length=2000, blank=True, null=True)
 

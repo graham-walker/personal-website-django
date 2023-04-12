@@ -18,6 +18,13 @@
                 {% if bio.title %}<h1 class="title is-spaced">{{ bio.title|safe }}</h1>{% endif %}
                 {% if bio.greeting %}<span class="subtitle">{{ bio.greeting }}</span>{% endif %}
                 {{ bio.about_me|safe }}
+                {% if bio.show_about_buttons %}
+                <div class="shelf-buttons center">
+                    {% if bio.resume_url %}
+                    <a class="button is-dark" href="{{ bio.resume_url }}" target="_blank">Resume</a>
+                    {% endif %}
+                </div>
+                {% endif %}
             </div>
             {% if bio.screenshot_url %}
             <div class="shelf-image fade-in">

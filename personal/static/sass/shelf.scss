@@ -14,6 +14,10 @@
 
     .shelf-buttons {
         text-align: right;
+
+        &.center {
+            text-align: center !important;
+        }
     }
 
     &.is-reverse {
