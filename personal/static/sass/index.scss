@@ -16,9 +16,8 @@
 }
 
 #face {
-	filter: brightness(1.1);
-	// animation: bounceIn 1s forwards cubic-bezier(0.215, 0.61, 0.355, 1), fadeIn 0.4s forwards linear;
 	height: 400px;
+	background: $color-main;
 }
 
 @keyframes bounceIn {
@@ -53,5 +52,4 @@
 
 #about-section {
 	padding-top: 0;
-	padding-bottom: 0;
 }
