@@ -18,6 +18,13 @@
                 {% endif %}
                 {{ post.title }}
             </a>
+            {% if post.tags.all %}
+            <div class="tags">
+                {% for tag in post.tags.all %}
+                <span class="tag">{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
             {{ post.short_description|safe }}
             <br />
             <div class="shelf-buttons">
