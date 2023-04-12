@@ -8,6 +8,7 @@ from ckeditor.fields import RichTextField
 class Bio(models.Model):
     name = models.CharField(max_length=2000, default="Your Name")
     initials = models.CharField(max_length=2000, blank=True, null=True)
+    title = models.CharField(max_length=2000, blank=True, null=True)
     greeting = models.CharField(max_length=2000, blank=True, null=True)
     screenshot_url = models.CharField(max_length=2000, blank=True, null=True)
     favicon_url = models.CharField(max_length=2000, blank=True, null=True)

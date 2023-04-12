@@ -22,7 +22,7 @@
             </div>
             {% endif %}
             <div class="shelf-content">
-                <a class="title is-spaced" href="/">I'm <span class="is-underline">{{ bio.name }}</span></a>
+                {% if bio.title %}<h1 class="title">{{ bio.title|safe }}</h1>{% endif %}
                 {% if bio.greeting %}<span class="subtitle">{{ bio.greeting }}</span>{% endif %}
                 {{ bio.about_me|safe }}
             </div>
