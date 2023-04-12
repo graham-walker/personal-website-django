@@ -1,5 +1,4 @@
 django==4.2
-
-django-taggit
-django-ckeditor
-django-cleanup
+django-taggit==2.1.0
+django-ckeditor==6.3.2
+django-cleanup==7.0.0
