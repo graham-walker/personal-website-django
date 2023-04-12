@@ -1,35 +1,40 @@
 #about {
 	max-width: 768px;
+	margin: 0 auto;
 
-	.shelf-content {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding-bottom: 3rem;
-	}
+	.shelf {
+		margin-bottom: 0;
 
-	.shelf-image {
-		padding: 0;
-		flex-shrink: 0;
+		.shelf-content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding-bottom: 3rem;
+		}
 
-		.image {
-			background: $color-main;
-			overflow: hidden;
+		.shelf-image {
+			padding: 0;
+			flex-shrink: 0;
 
-			#face {
-				max-height: 400px;
-				filter: drop-shadow(2px 2px 0 white) drop-shadow(-2px 2px 0 white) drop-shadow(2px -2px 0 white)
-					drop-shadow(-2px -2px 0 white);
+			.image {
+				background: $color-main;
+				overflow: hidden;
+
+				#face {
+					max-height: 400px;
+					filter: drop-shadow(2px 2px 0 white) drop-shadow(-2px 2px 0 white) drop-shadow(2px -2px 0 white)
+						drop-shadow(-2px -2px 0 white);
+				}
 			}
 		}
-	}
 
-	.title {
-		line-height: 1.5em;
-	}
+		.title {
+			line-height: 1.5em;
+		}
 
-	.title span {
-		white-space: nowrap;
+		.title span {
+			white-space: nowrap;
+		}
 	}
 }
 

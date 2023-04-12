@@ -13,43 +13,43 @@
 
 <div class="container">
     <section id="about-section" class="section">
-        <div id="about" class="shelf is-half">
-            <div class="shelf-content">
-                {% if bio.title %}<h1 class="title is-spaced">{{ bio.title|safe }}</h1>{% endif %}
-                {% if bio.greeting %}<span class="subtitle">{{ bio.greeting }}</span>{% endif %}
-                <div class="margin-bottom-1">{{ bio.about_me|safe }}</div>
-                {% if bio.location %}
-                <p class="icon-text margin-bottom-1">
-                    <span class="fa-stack">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fas fa-map-marker-alt fa-stack-1x fa-inverse"></i>
-                    </span>
-                    {{ bio.location|safe }}
-                </p>
-                {% endif %}
-                {% if bio.employment %}
-                <p class="icon-text margin-bottom-1">
-                    <span class="fa-stack">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fas fa-briefcase fa-stack-1x fa-inverse"></i>
-                    </span>
-                    {{ bio.employment|safe }}
-                </p>
-                {% endif %}
-                {% if bio.show_about_buttons %}
-                <div class="shelf-buttons center">
-                    {% if bio.resume_url %}
-                    <a class="button is-dark" href="{{ bio.resume_url }}" target="_blank">Resume</a>
+        <div id="about">
+            <div class="shelf is-half">
+                <div class="shelf-content">
+                    {% if bio.title %}<h1 class="title is-spaced">{{ bio.title|safe }}</h1>{% endif %}
+                    {% if bio.greeting %}<span class="subtitle">{{ bio.greeting }}</span>{% endif %}
+                    <div class="margin-bottom-1">{{ bio.about_me|safe }}</div>
+                    {% if bio.location %}
+                    <p class="icon-text margin-bottom-1">
+                        <span class="fa-stack">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fas fa-map-marker-alt fa-stack-1x fa-inverse"></i>
+                        </span>
+                        {{ bio.location|safe }}
+                    </p>
+                    {% endif %}
+                    {% if bio.employment %}
+                    <p class="icon-text margin-bottom-1">
+                        <span class="fa-stack">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fas fa-briefcase fa-stack-1x fa-inverse"></i>
+                        </span>
+                        {{ bio.employment|safe }}
+                    </p>
                     {% endif %}
                 </div>
+                {% if bio.screenshot_url %}
+                <div class="shelf-image fade-in">
+                    <figure class="image has-shadow">
+                        <img id="face" src="{{ bio.screenshot_url }}">
+                    </figure>
+                </div>
                 {% endif %}
-            </div>
-            {% if bio.screenshot_url %}
-            <div class="shelf-image fade-in">
-                <figure class="image has-shadow">
-                    <img id="face" src="{{ bio.screenshot_url }}">
-                </figure>
-            </div>
+            </div>   
+            {% if bio.show_about_buttons %}
+                {% if bio.resume_url %}
+                <a class="button is-dark is-medium is-block" href="{{ bio.resume_url }}">Resume</a>
+                {% endif %}
             {% endif %}
         </div>
     </section>
