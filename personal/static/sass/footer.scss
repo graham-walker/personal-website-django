@@ -5,10 +5,6 @@
 	.level {
 		justify-content: center;
 
-		.level-item {
-			padding: 1rem;
-		}
-
 		#footer-copyright {
 			font-size: 1.5rem;
 			font-weight: 500;
@@ -24,13 +20,11 @@
 		}
 
 		&.icon-link {
-			&:not(:last-child) {
-				margin-right: 0.25rem;
-			}
+			margin-left: 1rem;
 			
 			.icon {
 				transition: transform 0.2s ease-out;
-				display: inline-block;
+				display: grid;
 			}
 			
 			&:hover {
