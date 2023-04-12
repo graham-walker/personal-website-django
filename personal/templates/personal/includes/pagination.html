@@ -2,11 +2,11 @@
 <nav class="pagination is-centered{% if bottom %} is-bottom{% endif %}">
     <ul class="pagination-list">
         {% for i in posts.paginator.page_range %}
-        {% ifequal i posts.number %}
+        {% if i == posts.number %}
         <li><a class="pagination-link is-current"></a></li>
         {% else %}
         <li><a href="?p={{ i }}" class="pagination-link"></a></li>
-        {% endifequal %}
+        {% endif %}
         {% endfor %}
     </ul>
 </nav>
