@@ -2,7 +2,12 @@
 	max-width: 768px;
 
 	.shelf-content {
-		padding-bottom: 0;
+		padding-bottom: 3rem;
+	}
+
+	.shelf-image {
+		padding: 0;
+		flex-shrink: 0;
 	}
 
 	.title:hover {
@@ -12,7 +17,8 @@
 
 #face {
 	filter: brightness(1.1);
-	animation: bounceIn 1s forwards cubic-bezier(0.215, 0.61, 0.355, 1), fadeIn 0.4s forwards linear;
+	// animation: bounceIn 1s forwards cubic-bezier(0.215, 0.61, 0.355, 1), fadeIn 0.4s forwards linear;
+	height: 400px;
 }
 
 @keyframes bounceIn {
@@ -45,15 +51,7 @@
 	}
 }
 
-@media only screen and (min-width: 1024px) {
-	#about {
-
-		.shelf-image {
-			margin-top: 1.5rem;
-		}
-	}
-}
-
 #about-section {
 	padding-top: 0;
+	padding-bottom: 0;
 }
