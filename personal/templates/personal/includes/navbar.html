@@ -22,6 +22,8 @@
             <a class="navbar-item{% if active_link == 'about' %} is-active{% endif %}" href="/about">About Me</a>
             <a class="navbar-item{% if active_link == 'blogs' %} is-active{% endif %}" href="/blogs">Case Studies</a> -->
             <!-- <a class="navbar-item" href="{{ bio.resume_url }}" target="_blank">Resume</a> -->
+            <a class="navbar-item{% if active_link == 'post' %} is-active{% endif %}"
+                href="/posts">Portfolio</a>
             {% if user.is_superuser %}
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">{{ user.username|underscore_to_space }}</a>

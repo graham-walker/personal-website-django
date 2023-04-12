@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>{% block title %}{% endblock %} - {{ bio.name }}</title>
+    <title>{% block no_title %}{% block title %}{% endblock %} - {% endblock %}{{ bio.name }}</title>
     {% load static %}
 
     <meta name="viewport"
