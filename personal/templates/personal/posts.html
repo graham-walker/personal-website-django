@@ -12,41 +12,7 @@
 
 <div class="background-wrapper is-dark">
     <div class="container">
-        <section id="portfolio-section" class="section">
-            {% for post in posts %}
-            <div class="shelf has-shadow{% if forloop.counter|divisibleby:2 %} is-reverse{% endif %}">
-                <div class="shelf-image has-background-image fade-in"
-                    style="background-image: url('{{ post.screenshot }}')">
-                </div>
-                <div class="shelf-content">
-                    <span class="subtitle">{{ post.subtitle }}</span>
-                    <a class="title"
-                        href="{% if post|to_class_name == 'Post' %}/posts/{{ post.id }}{% else %}{{ post.primary_button_link }}{% endif %}"
-                        target="{% if not post|to_class_name == 'Post' %}_blank{% endif %}">
-                        {% if not post.visible %}
-                        <span class="icon has-text-danger"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
-                        {% endif %}
-                        {{ post.title }}
-                    </a>
-                    {{ post.short_description|safe }}
-                    <br />
-                    <div class="shelf-buttons">
-                        {% if post|to_class_name == 'Post' %}
-                        <a class="button is-dark" href="/posts/{{ post.id }}">{{ post.primary_button_text }}</a>
-                        {% else %}
-                        <a class="button is-dark" href="{{ post.primary_button_link }}"
-                            target="_blank">{{ post.primary_button_text }}</a>
-                        {% if post.secondary_button_text and post.secondary_button_link %}
-                        <a class="button is-light" href="{{ post.secondary_button_link }}"
-                            target="_blank">{{ post.secondary_button_text }}</a>
-                        {% endif %}
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            {% include "personal/includes/pagination.html" with bottom=True %}
-        </section>
+        {% include "personal/includes/posts_list.html" %}
     </div>
 </div>
 

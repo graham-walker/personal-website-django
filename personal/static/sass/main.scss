@@ -183,7 +183,7 @@ input[type='password'] {
 	align-items: center;
 	.fa-stack {
 		flex-shrink: 0;
-		
+
 		.fa-circle {
 			color: $color-text-dark;
 		}
@@ -192,4 +192,8 @@ input[type='password'] {
 
 .margin-bottom-1 {
 	margin-bottom: 1rem;
+}
+
+.padding-top-0 {
+	padding-top: 0;
 }
