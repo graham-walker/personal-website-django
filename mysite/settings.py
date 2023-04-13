@@ -130,5 +130,7 @@ DJANGO_WYSIWYG_MEDIA_URL = '/uploads'
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
+        'allowedContent': True,
+        'extraAllowedContent': '*(*)',
     },
 }
