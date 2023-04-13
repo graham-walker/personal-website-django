@@ -54,7 +54,7 @@ DEBUG = True
 Make migrations
 ```
 mkdir ./personal/migrations
-python manage.py migrate
+python manage.py migrate --run-syncdb
 ```
 
 
