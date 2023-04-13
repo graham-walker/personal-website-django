@@ -1,0 +1,11 @@
+{% extends "admin/base_site.html" %}
+{% block extrahead %}
+<style>
+    /* Improve django-ckeditor source text visibility when using the django admin dark theme */
+    @media (prefers-color-scheme: dark) {
+        .cke_contents>.cke_source {
+            color: #333333;
+        }
+    }
+</style>
+{% endblock %}
