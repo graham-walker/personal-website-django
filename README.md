@@ -48,6 +48,8 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+DEBUG = True
 ```
 Make migrations
 ```
