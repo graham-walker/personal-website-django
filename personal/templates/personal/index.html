@@ -18,9 +18,9 @@
                 <div class="shelf-content">
                     {% if bio.title %}<h1 class="title is-spaced">{{ bio.title|safe }}</h1>{% endif %}
                     {% if bio.greeting %}<span class="subtitle">{{ bio.greeting }}</span>{% endif %}
-                    <div class="margin-bottom-1">{{ bio.about_me|safe }}</div>
+                    <div class="mb-4">{{ bio.about_me|safe }}</div>
                     {% if bio.location %}
-                    <p class="icon-text margin-bottom-1">
+                    <p class="icon-text mb-4">
                         <span class="fa-stack">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fas fa-map-marker-alt fa-stack-1x fa-inverse"></i>
@@ -29,7 +29,7 @@
                     </p>
                     {% endif %}
                     {% if bio.employment %}
-                    <p class="icon-text margin-bottom-1">
+                    <p class="icon-text mb-4">
                         <span class="fa-stack">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fas fa-briefcase fa-stack-1x fa-inverse"></i>
@@ -59,7 +59,7 @@
     <div class="container">
         {% include "personal/includes/posts_list.html" %}
         {% if more_posts %}
-        <section class="section padding-top-0">
+        <section class="section pt-0">
             <a class="button is-dark is-medium is-block" href="/posts/{{ post.id }}">View All Posts</a>
         </section>
         {% endif %}

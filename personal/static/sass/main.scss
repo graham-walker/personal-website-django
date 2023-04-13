@@ -143,6 +143,18 @@ input[type='password'] {
 	width: 192px;
 }
 
+.icon-text {
+	display: flex;
+	align-items: center;
+	.fa-stack {
+		flex-shrink: 0;
+
+		.fa-circle {
+			color: $color-text-dark;
+		}
+	}
+}
+
 // Helpers
 .fade-in {
 	opacity: 0;
@@ -179,22 +191,6 @@ input[type='password'] {
 	box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1);
 }
 
-.icon-text {
-	display: flex;
-	align-items: center;
-	.fa-stack {
-		flex-shrink: 0;
-
-		.fa-circle {
-			color: $color-text-dark;
-		}
-	}
-}
-
-.margin-bottom-1 {
-	margin-bottom: 1rem;
-}
-
-.padding-top-0 {
-	padding-top: 0;
+.text-nowrap {
+	white-space: nowrap;
 }

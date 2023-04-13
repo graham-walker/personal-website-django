@@ -60,15 +60,9 @@
             </div>
             {% if bio.website_repo_url %}
             <p>
-                <a
-                    href="{{ bio.website_repo_url }}"
-                    target="_blank"
-                >
-                    Inspect the source code of my personal website on GitHub<span
-                        class="icon is-small"
-                    >
-                        <i class="fas fa-external-link-alt"></i>
-                    </span>
+                <a href="{{ bio.website_repo_url }}" target="_blank">
+                    Inspect the source code of my personal website on <span class="text-nowrap">GitHub<span
+                            class="icon is-small"><i class="fas fa-external-link-alt"></i></span></span>
                 </a>
             </p>
             {% endif %}
