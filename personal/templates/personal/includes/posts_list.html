@@ -3,8 +3,8 @@
 <section id="portfolio-section" class="section">
     {% for post in posts %}
     <div class="shelf has-shadow{% if forloop.counter|divisibleby:2 %} is-reverse{% endif %}">
-        <div class="shelf-image has-background-image fade-in"
-            style="background-image: url('{{ post.screenshot }}')">
+        <div class="shelf-image has-background-image fade-in" style="{% if post.fallback_background %}background: {{post.fallback_background}};{% endif %} {% if post.gradient %}background: {{post.gradient}};{% endif %}">
+            <div class="shelf-background-image" style="background-image: url('{{ post.screenshot }}')"></div>
         </div>
         <div class="shelf-content">
             <span class="subtitle">{{ post.subtitle }}</span>

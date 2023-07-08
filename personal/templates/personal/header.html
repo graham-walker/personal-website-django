@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
         integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
     <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}" type="text/css" />
-    <link rel="stylesheet" href="{% static 'css/custom.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/custom.min.css' %}?v={{bio.cache_version}}" type="text/css" />
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
@@ -27,7 +27,7 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"
         integrity="sha256-TQq84xX6vkwR0Qs1qH5ADkP+MvH0W+9E7TdHJsoIQiM=" crossorigin="anonymous"></script>
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/script.js' %}?v={{bio.cache_version}}"></script>
 </head>
 
 {% load personal_extras %}

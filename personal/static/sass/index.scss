@@ -18,6 +18,7 @@
 
 			.image {
 				background: $color-main;
+				background: linear-gradient($color-main, #00FFFF);
 				overflow: hidden;
 
 				#face {

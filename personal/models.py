@@ -6,6 +6,7 @@ from ckeditor.fields import RichTextField
 
 
 class Bio(models.Model):
+    cache_version = models.CharField(max_length=10, default="1.0.0")
     name = models.CharField(max_length=2000, default="Your Name")
     initials = models.CharField(max_length=2000, blank=True, null=True)
     title = models.CharField(max_length=2000, blank=True, null=True)
@@ -50,6 +51,8 @@ class Post(models.Model):
     visible = models.BooleanField(default=True)
     show_on_homepage = models.BooleanField(default=False)
     screenshot = models.CharField(max_length=2000, blank=True)
+    gradient = models.CharField(max_length=2000, blank=True)
+    fallback_background = models.CharField(max_length=2000, blank=True)
     screenshot_credit = models.CharField(max_length=2000, blank=True)
     short_description = RichTextField()
     primary_button_text = models.CharField(max_length=50, default="View Post")
@@ -77,6 +80,8 @@ class LinkPost(models.Model):
     visible = models.BooleanField(default=True)
     show_on_homepage = models.BooleanField(default=False)
     screenshot = models.CharField(max_length=2000, blank=True)
+    gradient = models.CharField(max_length=2000, blank=True)
+    fallback_background = models.CharField(max_length=2000, blank=True)
     short_description = RichTextField()
     primary_button_text = models.CharField(max_length=50, default="Visit Link")
     primary_button_link = models.CharField(max_length=2000, blank=True)

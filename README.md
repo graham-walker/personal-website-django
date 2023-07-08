@@ -77,3 +77,5 @@ cd ./personal-website-django
 
 sass --watch .\personal\static\sass\main.scss:.\personal\static\css\custom.min.css --style compressed --no-source-map
 ```
+
+Update the Bio `cache_version` after making changes to the stylesheet or script
