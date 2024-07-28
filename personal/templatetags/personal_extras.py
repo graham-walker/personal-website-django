@@ -23,6 +23,7 @@ def file_to_icon(value):
           or url.endswith('.gif')
           or url.endswith('.bmp')
           or url.endswith('.ico')
+          or url.endswith('.webp')
           ):
         return mark_safe('<img style="height: 3rem;" src="' + value.file.url + '">')
     else:
