@@ -73,3 +73,12 @@
 #about-section {
 	padding-top: 0;
 }
+
+#projects-section + #blog-section {
+	padding-top: 0;
+	margin-top: -1.5rem;
+}
+
+#blog-section .shelf {
+	min-height: unset;
+}

@@ -3,6 +3,7 @@ from taggit.managers import TaggableManager
 from taggit.models import Tag
 from django.utils.timezone import datetime
 from ckeditor.fields import RichTextField
+from django.utils.text import slugify
 
 
 class Bio(models.Model):
@@ -47,6 +48,8 @@ class File(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=2000)
+    slug = models.CharField(max_length=2000, blank=True)
+    category = models.CharField(max_length=50, choices=[('project', 'Project'), ('blog', 'Blog')], default="project")
     subtitle = models.CharField(max_length=2000, blank=True)
     visible = models.BooleanField(default=True)
     show_on_homepage = models.BooleanField(default=False)
@@ -54,7 +57,7 @@ class Post(models.Model):
     gradient = models.CharField(max_length=2000, blank=True)
     fallback_background = models.CharField(max_length=2000, blank=True)
     screenshot_credit = models.CharField(max_length=2000, blank=True)
-    short_description = RichTextField()
+    short_description = RichTextField(blank=True)
     primary_button_text = models.CharField(max_length=50, default="View Post")
     tags = TaggableManager(blank=True)
     body = RichTextField()
@@ -71,18 +74,22 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         self.date_edited = datetime.now()
+        if not self.slug:
+            self.slug = slugify(self.title)
+        self.slug = slugify(self.slug)
         super(Post, self).save(*args, **kwargs)
 
 
 class LinkPost(models.Model):
     title = models.CharField(max_length=2000)
+    category = models.CharField(max_length=50, choices=[('project', 'Project'), ('blog', 'Blog')], default="project")
     subtitle = models.CharField(max_length=2000, blank=True)
     visible = models.BooleanField(default=True)
     show_on_homepage = models.BooleanField(default=False)
     screenshot = models.CharField(max_length=2000, blank=True)
     gradient = models.CharField(max_length=2000, blank=True)
     fallback_background = models.CharField(max_length=2000, blank=True)
-    short_description = RichTextField()
+    short_description = RichTextField(blank=True)
     primary_button_text = models.CharField(max_length=50, default="Visit Link")
     primary_button_link = models.CharField(max_length=2000, blank=True)
     secondary_button_text = models.CharField(max_length=50, blank=True)

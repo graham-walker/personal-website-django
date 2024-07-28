@@ -2,17 +2,17 @@
 
 {% load personal_extras %}
 
-{% block title %}Portfolio{% endblock %}
-{% block pagename %}Portfolio{% endblock %}
+{% block title %}Projects{% endblock %}
+{% block pagename %}Projects{% endblock %}
 
 {% block content %}
 
-{% include "personal/includes/navbar.html" with active_link="post" %}
+{% include "personal/includes/navbar.html" with active_link="project" %}
 
 
-<div class="background-wrapper is-dark">
+<div class="background-wrapper is-dark flex-grow">
     <div class="container">
-        {% include "personal/includes/posts_list.html" %}
+        {% include "personal/includes/projects_list.html" %}
     </div>
     <section class="section pt-0">
         {% include "personal/includes/pagination.html" with bottom=True %}

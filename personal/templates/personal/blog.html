@@ -1,0 +1,22 @@
+{% extends "personal/header.html" %}
+
+{% load personal_extras %}
+
+{% block title %}Blog{% endblock %}
+{% block pagename %}Blog{% endblock %}
+
+{% block content %}
+
+{% include "personal/includes/navbar.html" with active_link="blog" %}
+
+
+<div class="background-wrapper is-dark flex-grow">
+    <div class="container">
+        {% include "personal/includes/blog_list.html" %}
+    </div>
+    <section class="section pt-0">
+        {% include "personal/includes/pagination.html" with bottom=True %}
+    </section>
+</div>
+
+{% endblock %}

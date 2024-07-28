@@ -1,16 +1,16 @@
 {% load personal_extras %}
 
-<section id="portfolio-section" class="section">
-    {% for post in posts %}
+<section id="projects-section" class="section">
+    {% for post in project_posts %}
     <div class="shelf has-shadow{% if forloop.counter|divisibleby:2 %} is-reverse{% endif %}">
         <div class="shelf-image has-background-image fade-in" style="{% if post.fallback_background %}background: {{post.fallback_background}};{% endif %} {% if post.gradient %}background: {{post.gradient}};{% endif %}">
             <div class="shelf-background-image" style="background-image: url('{{ post.screenshot }}')"></div>
         </div>
         <div class="shelf-content">
-            <span class="subtitle">{{ post.subtitle }}</span>
+            <span class="subtitle">{{ post.subtitle|default:post.category }}</span>
             <a
                 class="title"
-                href="{% if post|to_class_name == 'Post' %}/posts/{{ post.id }}{% else %}{{ post.primary_button_link }}{% endif %}"
+                href="{% if post|to_class_name == 'Post' %}/posts/{{ post.id }}/{{ post.slug }}{% else %}{{ post.primary_button_link }}{% endif %}"
                 target="{% if not post|to_class_name == 'Post' %}_blank{% endif %}"
             >
                 {% if not post.visible %}
@@ -29,7 +29,7 @@
             <br />
             <div class="shelf-buttons">
                 {% if post|to_class_name == 'Post' %}
-                <a class="button is-dark" href="/posts/{{ post.id }}">{{ post.primary_button_text }}</a>
+                <a class="button is-dark" href="/posts/{{ post.id }}/{{ post.slug }}">{{ post.primary_button_text }}</a>
                 {% else %}
                 <a class="button is-dark" href="{{ post.primary_button_link }}" target="_blank">{{ post.primary_button_text }}</a>
                     {% if post.secondary_button_text and post.secondary_button_link %}

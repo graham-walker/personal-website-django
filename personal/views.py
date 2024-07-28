@@ -13,19 +13,32 @@ import operator
 
 def index(request):
     if (request.user.is_superuser):
-        post_count = Post.objects.all().count() + LinkPost.objects.all().count()
-        posts = Post.objects.all().filter(Q(show_on_homepage=True))
-        linkposts = LinkPost.objects.all().filter(Q(show_on_homepage=True))
-    else:
-        post_count = Post.objects.all().filter(Q(visible=True)).count() + \
-            LinkPost.objects.all().filter(Q(visible=True)).count()
-        posts = Post.objects.all().filter(Q(show_on_homepage=True) & Q(visible=True))
-        linkposts = LinkPost.objects.all().filter(
-            Q(show_on_homepage=True) & Q(visible=True))
+        project_post_count = Post.objects.all().filter(Q(category='project')).count() + LinkPost.objects.all().filter(Q(category='project')).count()
+        project_posts = Post.objects.all().filter(Q(show_on_homepage=True, category='project'))
+        project_linkposts = LinkPost.objects.all().filter(Q(show_on_homepage=True, category='project'))
 
-    posts = sorted(
-        chain(posts, linkposts),
-        key=operator.attrgetter('date_edited'),
+        blog_post_count = Post.objects.all().filter(Q(category='blog')).count() + LinkPost.objects.all().filter(Q(category='blog')).count()
+        blog_posts = Post.objects.all().filter(Q(show_on_homepage=True, category='blog'))
+        blog_linkposts = LinkPost.objects.all().filter(Q(show_on_homepage=True, category='blog'))
+
+    else:
+        project_post_count = Post.objects.all().filter(Q(category='project', visible=True)).count() + LinkPost.objects.all().filter(Q(category='project')).count()
+        project_posts = Post.objects.all().filter(Q(show_on_homepage=True, category='project', visible=True))
+        project_linkposts = LinkPost.objects.all().filter(Q(show_on_homepage=True, category='project', visible=True))
+
+        blog_post_count = Post.objects.all().filter(Q(category='blog', visible=True)).count() + LinkPost.objects.all().filter(Q(category='blog')).count()
+        blog_posts = Post.objects.all().filter(Q(show_on_homepage=True, category='blog', visible=True))
+        blog_linkposts = LinkPost.objects.all().filter(Q(show_on_homepage=True, category='blog', visible=True))
+
+    project_posts = sorted(
+        chain(project_posts, project_linkposts),
+        key=operator.attrgetter('date_posted'),
+        reverse=True
+    )
+
+    blog_posts = sorted(
+        chain(blog_posts, blog_linkposts),
+        key=operator.attrgetter('date_posted'),
         reverse=True
     )
 
@@ -33,23 +46,25 @@ def index(request):
         request,
         'personal/index.html',
         {
-            'posts': posts,
-            'more_posts': post_count > len(posts)
+            'project_posts': project_posts,
+            'more_project_posts': project_post_count > len(project_posts),
+            'blog_posts': blog_posts,
+            'more_blog_posts': blog_post_count > len(blog_posts)
         },
     )
 
 
-def posts(request):
+def projects(request):
     if (request.user.is_superuser):
-        posts = Post.objects.all()
-        linkposts = LinkPost.objects.all()
+        posts = Post.objects.all().filter(Q(category='project'))
+        linkposts = LinkPost.objects.all().filter(Q(category='project'))
     else:
-        posts = Post.objects.all().filter(Q(visible=True))
-        linkposts = LinkPost.objects.all().filter(Q(visible=True))
+        posts = Post.objects.all().filter(Q(category='project', visible=True))
+        linkposts = LinkPost.objects.all().filter(Q(category='project', visible=True))
 
     posts = sorted(
         chain(posts, linkposts),
-        key=operator.attrgetter('date_edited'),
+        key=operator.attrgetter('date_posted'),
         reverse=True
     )
 
@@ -65,10 +80,39 @@ def posts(request):
 
     return render(
         request,
-        'personal/posts.html',
-        {'posts': posts}
+        'personal/projects.html',
+        {'project_posts': posts}
     )
 
+def blog(request):
+    if (request.user.is_superuser):
+        posts = Post.objects.all().filter(Q(category='blog'))
+        linkposts = LinkPost.objects.all().filter(Q(category='blog'))
+    else:
+        posts = Post.objects.all().filter(Q(category='blog', visible=True))
+        linkposts = LinkPost.objects.all().filter(Q(category='blog', visible=True))
+
+    posts = sorted(
+        chain(posts, linkposts),
+        key=operator.attrgetter('date_posted'),
+        reverse=True
+    )
+
+    paginator = Paginator(posts, per_page=3)
+
+    page = request.GET.get('p')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'personal/blog.html',
+        {'blog_posts': posts}
+    )
 
 def delete(request, pk):
     if (not request.user.is_superuser):
@@ -92,7 +136,7 @@ def logoutView(request):
     return redirect('/')
 
 
-def post(request, pk):
+def post(request, pk, slug):
     try:
         post = Post.objects.all().get(id=int(pk))
     except:
@@ -102,7 +146,10 @@ def post(request, pk):
         return HttpResponseNotFound()
     else:
         if (post.visible == True or request.user.is_superuser):
-            return render(request, 'personal/post.html', {'post': post})
+            if slug != post.slug:
+                return redirect('post', pk=post.pk, slug=post.slug, permanent=True)
+            else:
+                return render(request, 'personal/post.html', {'post': post})
         else:
             return HttpResponseForbidden()
 

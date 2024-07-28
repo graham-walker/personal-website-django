@@ -14,6 +14,8 @@
 		top: 0;
 		background: $color-main;
 		transition: width 0.1s ease;
+		z-index: 1;
+		pointer-events: none;
 	}
 
 	&.is-fixed {
@@ -74,13 +76,22 @@
 	color: $color-text-dark !important;
 	transition: background-color 0.2s ease, color 0.2s ease;
 
-	&:hover {
-		border-color: rgba($color-main, 0.1);
-	}
-
 	&.is-active {
 		color: $color-main !important;
 	}
+}
+
+a.navbar-link,
+a.navbar-item {
+	background-color: $color-background-1 !important;
+
+	&:hover {
+		background-color: $color-background-3 !important;
+	}
+}
+
+.navbar-burger:hover {
+	background-color: $color-background-3 !important;
 }
 
 .navbar-item.has-dropdown .navbar-item,

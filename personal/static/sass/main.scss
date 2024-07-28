@@ -1,7 +1,7 @@
 // cd /personal/static
 // sass --no-source-map --watch sass/main.scss:css/custom.min.css --style compressed
 
-@import 'var', 'header', 'navbar', 'footer', 'pagination', 'index', 'media', 'post', 'shelf', 'button';
+@import 'var', 'header', 'navbar', 'footer', 'pagination', 'index', 'media', 'post', 'shelf', 'button', 'blog';
 
 body {
 	display: flex;
@@ -12,6 +12,8 @@ body {
 	> .site-wrapper {
 		min-height: 100vh;
 		padding-top: 9.25rem;
+		display: flex;
+		flex-direction: column;
 	}
 }
 
@@ -99,6 +101,10 @@ a {
 .panel {
 	border-radius: 0;
 	box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1);
+}
+
+.tag:not(.is-black) {
+	background-color: $color-background-3 !important;
 }
 
 // Inputs
@@ -193,4 +199,8 @@ input[type='password'] {
 
 .text-nowrap {
 	white-space: nowrap;
+}
+
+.flex-grow {
+	flex-grow: 1;
 }

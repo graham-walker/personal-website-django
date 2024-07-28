@@ -54,14 +54,24 @@
         </div>
     </section>
 </div>
-{% if posts %}
-<div class="background-wrapper is-dark">
+{% if project_posts or blog_posts %}
+<div class="background-wrapper is-dark flex-grow">
     <div class="container">
-        {% include "personal/includes/posts_list.html" %}
-        {% if more_posts %}
-        <section class="section pt-0">
-            <a class="button is-dark is-medium is-block" href="/posts/{{ post.id }}">View All Posts</a>
-        </section>
+        {% if project_posts %}
+            {% include "personal/includes/projects_list.html" %}
+            <!-- {% if more_project_posts %}
+            <section class="section pt-0">
+                <a class="button is-dark is-medium is-block" href="/projects/">View All Posts</a>
+            </section>
+            {% endif %} -->
+        {% endif %}
+        {% if blog_posts %}
+            {% include "personal/includes/blog_list.html" %}
+            <!-- {% if more_blog_posts %}
+            <section class="section pt-0">
+                <a class="button is-dark is-medium is-block" href="/blog/">View All Posts</a>
+            </section>
+            {% endif %} -->
         {% endif %}
     </div>
 </div>

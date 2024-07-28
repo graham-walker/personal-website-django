@@ -1,0 +1,31 @@
+{% load personal_extras %}
+
+<section id="blog-section" class="section">
+    {% for post in blog_posts %}
+    <div class="shelf has-shadow">
+        <div class="shelf-content">
+            <p class="date"><span class="icon is-color"><i
+                class="fas fa-calendar-alt"></i></span>{{ post.date_posted|date:"F j, Y, g:i A" }}</p>
+            <span class="subtitle">{{ post.subtitle|default:post.category }}</span>
+            <a
+                class="title"
+                href="{% if post|to_class_name == 'Post' %}/posts/{{ post.id }}/{{ post.slug }}{% else %}{{ post.primary_button_link }}{% endif %}"
+                target="{% if not post|to_class_name == 'Post' %}_blank{% endif %}"
+            >
+                {% if not post.visible %}
+                <span class="icon has-text-danger"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
+                {% endif %}
+                {{ post.title }}
+            </a>
+            {% if post.tags.all %}
+            <div class="tags">
+                {% for tag in post.tags.all %}
+                <span class="tag">{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {{ post.short_description|safe }}
+        </div>
+    </div>
+    {% endfor %}
+</section>
